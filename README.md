@@ -25,7 +25,6 @@
 ## Project Links
 
 https://github.com/msp4msps/social_network_api<br>
-https://webcast.net
 
 ## Screenshots-Demo
 
@@ -52,10 +51,6 @@ Fork the repo and run npm index.js locally
 ## Usage
 
 Run locally and use Insomnia/Postman to test API calls
-
-## Credits and Reference
-
-N/A
 
 ## Tests
 
