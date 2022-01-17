@@ -1,11 +1,27 @@
 const { Schema, model, Types } = require("mongoose");
 const friends = require("./reactions");
 
+//Function to validate email
+const validateEmail = function (email) {
+  const re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  return re.test(email);
+};
+
 // Schema to create User model
 const userSchema = new Schema(
   {
-    username: String,
-    email: String,
+    username: {
+      type: String,
+      required: true,
+      unique: true,
+      trim: true,
+    },
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+      validate: [validateEmail, "Please enter a valid email address"],
+    },
     thoughts: [
       {
         type: Schema.Types.ObjectId,

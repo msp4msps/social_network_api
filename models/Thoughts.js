@@ -1,19 +1,22 @@
 const { Schema, model } = require("mongoose");
 //Require reactions so we can return array
 const reactions = require("./reactions");
+const moment = require("moment");
 
 // Schema to create thought model
 const thoughtsSchema = new Schema(
   {
     text: {
       type: String,
+      required: true,
       minLength: 1,
-      maxLength: 500,
+      maxLength: 280,
     },
     reactions: [reactions],
     createdAt: {
       type: Date,
       default: Date.now,
+      get: (time) => moment(time).format("MM/DD/YYYY"),
     },
     username: {
       type: String,
@@ -23,6 +26,7 @@ const thoughtsSchema = new Schema(
   {
     toJSON: {
       virtuals: true,
+      getters: true,
     },
     id: false,
   }
