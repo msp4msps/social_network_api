@@ -1,7 +1,8 @@
 const { Schema, model } = require("mongoose");
+//Require reactions so we can return array
 const reactions = require("./reactions");
 
-// Schema to create Post model
+// Schema to create thought model
 const thoughtsSchema = new Schema(
   {
     text: {
@@ -27,7 +28,7 @@ const thoughtsSchema = new Schema(
   }
 );
 
-// Create a virtual property `getTags` that gets the amount of tags associated with an application
+// Create a virtual property `reactionCount` that gets the amount of reactions associated with a thought
 thoughtsSchema
   .virtual("reactionCount")
   // Getter
@@ -35,7 +36,7 @@ thoughtsSchema
     return this.reactions.length;
   });
 
-// Initialize our Application model
+// Initialize our thought model
 const Thoughts = model("thoughts", thoughtsSchema);
 
 module.exports = Thoughts;

@@ -6,7 +6,7 @@ const {
   deleteReaction,
 } = require("../../controllers/thoughtsController");
 
-// /api/applications
+// /api/thoughts
 router.route("/").get(getThoughts).post(createThought);
 router.route("/:thoughtId/reactions").post(createReaction);
 router.route("/:thoughtId/reactions/:reactionId").delete(deleteReaction);

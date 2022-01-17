@@ -28,4 +28,6 @@ const reactionSchema = new Schema(
   }
 );
 
+//Do not need to initialize the model here b/c we will addToSet/pull with thoughts model
+
 module.exports = reactionSchema;
